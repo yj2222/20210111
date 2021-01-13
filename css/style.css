@@ -20,8 +20,213 @@ img{
   border: none;
   vertical-align: bottom;
 }
-/* common */
+/* common
+------------------------------------- */
 .container{
   max-width: 1000px;
   margin: 0 auto;
 }
+/* header
+------------------------------------- */
+header{
+  padding: 10px;
+  background: chocolate;
+  color: #fff;
+}
+header > .container{
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and (min-width: 768px){
+  header > .container{
+    align-items: flex-end;
+  }
+}
+/* navigation(for pc) */
+nav.pcnav{
+  display: none;
+}
+li.dd-tgl > a::before{
+  content: '▼';
+  font-size: 11px;
+  margin-right: 3px;
+}
+@media screen and (min-width: 768px){
+  nav.pcnav{
+    display: block;
+  }
+  nav.pcnav > ul{
+    display: flex;
+  }
+  nav.pcnav > ul > li:not(:last-child){
+    margin-right: 10px;
+  }
+  nav.pcnav ul.dd-menu{
+    display: none;
+    background: #000;
+    box-shadow: 1px 1px 5px #000; 
+    position: absolute;
+    z-index: 10000;
+  }
+  nav.pcnav li.dd-tgl:hover ul.dd-menu{
+    display: block;
+  }
+  ul.dd-menu a{
+    padding: 0 20px;
+    display: block;
+    line-height: 50px;
+    transition: .3s;
+  }
+  ul.dd-menu a:hover{
+    background: orange;
+  }
+}
+/* humbarger menu */
+.spbtn{
+  width: 50px;
+  height: 50px;
+  border: 2px solid #fff;
+  border-radius: 3px;
+  position: relative;
+}
+.spbtn span, .spbtn span::before, .spbtn span::after{
+  display: block;
+  width: 35px;
+  height: 5px;
+  background: #fff;
+  border-radius: 5px;
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  margin: auto;
+  transition: .3s;
+}
+.spbtn span::before, .spbtn span::after{
+  content: '';
+}
+.spbtn span::before{
+  margin-top: -10px;
+}
+.spbtn span::after{
+  margin-top: 10px;
+}
+/* when active */
+.spbtn.active span{
+  background: transparent;
+}
+.spbtn.active span::before{
+  margin-top: 0;
+  transform: rotate(45deg);
+}
+.spbtn.active span::after{
+  margin-top: 0;
+  transform: rotate(-45deg);
+}
+@media screen and (min-width: 768px){
+  .spbtn{
+    display: none;
+  }
+}
+/* navigation(for sp
+------------------------------------- */
+nav.spnav{
+  position: fixed;
+  left: 100%;
+  width: 100%;
+  transition: .5s;
+  z-index: 10000;
+}
+nav.spnav.active{
+  position: absolute;
+  left: 0;
+}
+nav.spnav a{
+  display: block;
+  line-height: 70px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  text-align: center;
+  border-bottom: 1px solid #555;
+}
+nav.spnav ul.dd-menu{
+  display: none;
+}
+nav.spnav ul.dd-menu a{
+  background: rgba(128, 128, 128, 0.8);
+}
+/* bxslider
+------------------------------------- */
+/* スライダーの枠線を消す */
+.bx-wrapper {
+  background-color: transparent;
+  margin: 0px auto 50px;
+  border: none;
+  box-shadow: none;
+}
+.bx-wrapper img{
+  display: block;
+  margin: 0 auto;
+}
+/* main
+------------------------------------- */
+main{
+  padding: 0 10px;
+  margin-bottom: 1000px;
+}
+main > .container{
+  /* background: gray; */
+}
+h2{
+  margin-bottom: 20px;
+}
+/* lightbox */
+ul.thumbnail li{
+  margin-bottom: 10px;
+}
+@media screen and (min-width: 500px) and (max-width: 767px){
+  ul.thumbnail{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  ul.thumbnail li{
+    width: calc(50% - 5px);
+  }
+  ul.thumbnail li:not(:nth-child(2n)){
+    margin-right: 10px;
+  }
+}
+@media screen and (min-width: 768px){
+  ul.thumbnail{
+    display: flex;
+  }
+  ul.thumbnail li{
+    margin-bottom: 0;
+  }
+  ul.thumbnail li:not(:last-child){
+    margin-right: 10px;
+  }
+}
+/* scroll top */
+.scl-top{
+  display: none;
+  width: 100px;
+  height: 100px;
+  background: chocolate;
+  color: #fff;
+  font-size: 50px;
+  text-align: center;
+  line-height: 100px;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+/* footer
+-------------------------------- */
+footer{
+  padding: 30px 0;
+  background: chocolate;
+  text-align: center;
+  color: #fff;
+  font-size: 50px;
+}
+
